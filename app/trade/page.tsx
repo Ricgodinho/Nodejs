@@ -1,3 +1,5 @@
+"use client";
+
 import Layout from "@/components/Layout";
 import CollectionCard from "@/components/CollectionCard";
 import HelpTooltip from "@/components/HelpTooltip";

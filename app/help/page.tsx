@@ -1,3 +1,5 @@
+"use client";
+
 import Layout from "@/components/Layout";
 import HelpTooltip from "@/components/HelpTooltip";
 import { HelpCircle, FileText, Navigation, Settings } from "lucide-react";

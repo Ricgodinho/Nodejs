@@ -1,3 +1,5 @@
+"use client";
+
 import Layout from "@/components/Layout";
 import ChatInterface from "@/components/ChatInterface";
 import HelpTooltip from "@/components/HelpTooltip";

@@ -1,10 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { HelpCircle, BookOpen, TrendingUp, Menu, X, Clock, Sparkles } from "lucide-react";
+import {
+  HelpCircle,
+  BookOpen,
+  TrendingUp,
+  Menu,
+  X,
+  Clock,
+  Sparkles,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const location = useLocation();
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -31,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     },
   ];
 
-  const isActive = (href: string) => location.pathname === href;
+  const isActive = (href: string) => pathname === href;
 
   // Mock history data
   const interactions = [
@@ -49,7 +60,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm">
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-lg">
+          <Link href="/" className="flex items-center gap-2 font-bold text-lg">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
               <span className="text-white font-bold text-sm">RVA</span>
             </div>
@@ -64,7 +75,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               return (
                 <Link
                   key={item.href}
-                  to={item.href}
+                  href={item.href}
                   className={cn(
                     "flex items-center gap-2 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 whitespace-nowrap",
                     active
@@ -114,7 +125,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 return (
                   <Link
                     key={item.href}
-                    to={item.href}
+                    href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       "flex items-center gap-3 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
